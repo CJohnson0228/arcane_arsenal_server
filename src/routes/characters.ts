@@ -1,25 +1,22 @@
-import express, { Request, Response } from 'express'
+import express from 'express'
+import {
+  createCharacter,
+  deleteCharacter,
+  getAllUserCharacters,
+  getCharacter,
+  updateCharacter,
+} from '../controllers/charactersController'
 
 const router = express.Router()
 
-router.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'GET all characters' })
-})
+router.get('/myCharacters/:id', getAllUserCharacters)
 
-router.get('/:id', (req: Request, res: Response) => {
-  res.json({ message: 'GET a single character' })
-})
+router.get('/:id', getCharacter)
 
-router.post('/', (req: Request, res: Response) => {
-  res.json({ message: 'POST a new character' })
-})
+router.post('/', createCharacter)
 
-router.delete('/:id', (req: Request, res: Response) => {
-  res.json({ message: 'DELETE a character' })
-})
+router.delete('/:id', deleteCharacter)
 
-router.patch('/:id', (req: Request, res: Response) => {
-  res.json({ message: 'UPDATE a character' })
-})
+router.patch('/:id', updateCharacter)
 
 export default router

@@ -2,36 +2,8 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const saveAndAbilityCheckSchema = new Schema({
-  proficient: { type: Boolean, required: true },
-  value: { type: Number, required: false },
-})
-
-const weaponOrCantripSchema = new Schema({
-  name: { type: Number, required: false },
-  attackBonus: { type: Number, required: false },
-  difficultyClass: { type: Number, required: false },
-  damage: {
-    diceNumber: { type: Number, required: false },
-    diceSides: { type: Number, required: false },
-    type: { type: Number, required: false },
-  },
-})
-
-const preparedSpellsSchema = new Schema({
-  level: { type: Number, required: false },
-  name: { type: String, required: true },
-  castingTime: { type: Number, required: false },
-  range: { type: Number, required: false },
-  concentration: { type: Boolean, required: true },
-  ritual: { type: Boolean, required: true },
-  requireMaterial: { type: Boolean, required: true },
-  notes: [{ type: String, required: false }],
-})
-
 const characterSchema = new Schema(
   {
-    characterID: { type: String, required: true },
     playerID: { type: String, required: true },
     characterName: { type: String, required: true },
     avatarurl: { type: String, required: false },
@@ -45,7 +17,7 @@ const characterSchema = new Schema(
     mainClass: { type: String, required: true },
     subClass: { type: String, required: false },
     species: { type: String, required: true },
-    subSpecies: { type: String, required: true },
+    subSpecies: { type: String, required: false },
     appearance: { type: String, required: true },
     backstory: { type: String, required: true },
     personality: { type: String, required: true },
@@ -87,53 +59,136 @@ const characterSchema = new Schema(
       strength: {
         modifier: { type: Number, required: true },
         score: { type: Number, required: true },
-        savingThrow: saveAndAbilityCheckSchema,
-        athletics: saveAndAbilityCheckSchema,
+        savingThrow: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        athletics: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
       },
       dexterity: {
         modifier: { type: Number, required: true },
         score: { type: Number, required: true },
-        savingThrow: saveAndAbilityCheckSchema,
-        acrobatics: saveAndAbilityCheckSchema,
-        sleightOfHand: saveAndAbilityCheckSchema,
-        stealth: saveAndAbilityCheckSchema,
+        savingThrow: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        acrobatics: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        sleightOfHand: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        stealth: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
       },
       constitution: {
         modifier: { type: Number, required: true },
         score: { type: Number, required: true },
-        savingThrow: saveAndAbilityCheckSchema,
+        savingThrow: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
       },
       intelligence: {
         modifier: { type: Number, required: true },
         score: { type: Number, required: true },
-        savingThrow: saveAndAbilityCheckSchema,
-        arcane: saveAndAbilityCheckSchema,
-        history: saveAndAbilityCheckSchema,
-        investigation: saveAndAbilityCheckSchema,
-        nature: saveAndAbilityCheckSchema,
-        religion: saveAndAbilityCheckSchema,
+        savingThrow: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        arcane: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        history: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        investigation: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        nature: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        religion: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
       },
       wisdom: {
         modifier: { type: Number, required: true },
         score: { type: Number, required: true },
-        savingThrow: saveAndAbilityCheckSchema,
-        animalHandling: saveAndAbilityCheckSchema,
-        insight: saveAndAbilityCheckSchema,
-        medicine: saveAndAbilityCheckSchema,
-        perception: saveAndAbilityCheckSchema,
-        survival: saveAndAbilityCheckSchema,
+        savingThrow: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        animalHandling: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        insight: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        medicine: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        perception: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        survival: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
       },
       charisma: {
         modifier: { type: Number, required: true },
         score: { type: Number, required: true },
-        savingThrow: saveAndAbilityCheckSchema,
-        deception: saveAndAbilityCheckSchema,
-        intimidation: saveAndAbilityCheckSchema,
-        performance: saveAndAbilityCheckSchema,
-        persuasion: saveAndAbilityCheckSchema,
+        savingThrow: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        deception: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        intimidation: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        performance: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
+        persuasion: {
+          proficient: { type: Boolean, required: true },
+          value: { type: Number, required: false },
+        },
       },
     },
-    weaponsAndCantrips: [weaponOrCantripSchema],
+    weaponsAndCantrips: [
+      {
+        name: { type: String, required: false },
+        attackBonus: { type: Number, required: false },
+        difficultyClass: { type: Number, required: false },
+        damage: {
+          diceNumber: { type: Number, required: false },
+          diceSides: { type: Number, required: false },
+          type: { type: String, required: false },
+        },
+      },
+    ],
     classFeatures: [{ type: String, required: false }],
     specialTraits: [{ type: String, required: false }],
     feats: [{ type: String, required: false }],
@@ -181,7 +236,18 @@ const characterSchema = new Schema(
         expended: { type: Number, required: true },
       },
     },
-    preparedSpells: [preparedSpellsSchema],
+    preparedSpells: [
+      {
+        level: { type: Number, required: false },
+        name: { type: String, required: true },
+        castingTime: { type: Number, required: false },
+        range: { type: Number, required: false },
+        concentration: { type: Boolean, required: true },
+        ritual: { type: Boolean, required: true },
+        requireMaterial: { type: Boolean, required: true },
+        notes: [{ type: String, required: false }],
+      },
+    ],
   },
   { timestamps: true }
 )

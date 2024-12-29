@@ -1,3 +1,4 @@
+import cors from 'cors'
 import dotenv from 'dotenv'
 import express, { Express, Request, Response } from 'express'
 import mongoose from 'mongoose'
@@ -15,6 +16,8 @@ app.use((req: Request, res: Response, next) => {
   console.log(req.path, req.method)
   next()
 })
+app.use(express.json())
+app.use(cors())
 
 //routes
 app.use('/api/characters', characterRoutes)
