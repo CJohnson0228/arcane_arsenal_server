@@ -40,7 +40,7 @@ const createCharacter = async (req: Request, res: Response) => {
   Character.create(req.body)
     .then((character) => {
       if (character) {
-        res.status(200).json(character)
+        res.status(201).json(character)
       }
     })
     .catch((error) => {

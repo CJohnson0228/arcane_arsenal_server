@@ -1,20 +1,16 @@
 import express from 'express'
 import {
-  createUser,
-  deleteUser,
-  getUser,
+  loginUser,
+  signupUser,
   updateUser,
 } from '../controllers/userController'
 
 const router = express.Router()
 
-// edit these for creating and login users
-router.get('/:id', getUser)
+router.post('/login', loginUser)
 
-router.post('/', createUser)
+router.post('/register', signupUser)
 
-router.delete('/:id', deleteUser)
-
-router.patch('/:id', updateUser)
+router.post('/update', updateUser)
 
 export default router

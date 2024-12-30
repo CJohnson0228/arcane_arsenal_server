@@ -1,3 +1,4 @@
+import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import express, { Express, Request, Response } from 'express'
@@ -16,8 +17,9 @@ app.use((req: Request, res: Response, next) => {
   console.log(req.path, req.method)
   next()
 })
-app.use(express.json())
 app.use(cors())
+app.use(cookieParser())
+app.use(express.json())
 
 //routes
 app.use('/api/characters', characterRoutes)
